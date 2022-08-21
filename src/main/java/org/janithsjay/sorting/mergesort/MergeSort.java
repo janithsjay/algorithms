@@ -44,7 +44,7 @@ public class MergeSort extends Sorter {
         int i = 0, j = 0, k = firstIndex;
 
         while(i < leftArrSize && j < rightArrSize){
-            if(leftArr[i] < rightArr[j] && i < leftArrSize){
+            if(leftArr[i] < rightArr[j]){
                 arr[k] = leftArr[i];
                 i++;
             }else{
