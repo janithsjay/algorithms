@@ -59,13 +59,12 @@ public class MergeSort extends Sorter {
             k++;
         }
 
-        /* Copy remaining elements of R[] if any */
         while (j < rightArrSize) {
             arr[k] = rightArr[j];
             j++;
             k++;
         }
-        log.info("{}", arr);
+        log.info("Step {}: {}", k+1, arr);
         return arr;
     }
 }
