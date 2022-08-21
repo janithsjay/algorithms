@@ -1,8 +1,14 @@
 package org.janithsjay.sorting.selectionsort;
 
 import org.janithsjay.sorting.Sorter;
+import org.slf4j.LoggerFactory;
 
 public class SelectionSort extends Sorter {
+
+    public SelectionSort(){
+        log = LoggerFactory.getLogger(SelectionSort.class);
+    }
+
     @Override
     public int[] sort(int[] arr) {
         return sortByMin(arr);

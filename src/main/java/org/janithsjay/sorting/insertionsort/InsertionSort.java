@@ -1,8 +1,14 @@
 package org.janithsjay.sorting.insertionsort;
 
 import org.janithsjay.sorting.Sorter;
+import org.slf4j.LoggerFactory;
 
 public class InsertionSort extends Sorter {
+
+    public InsertionSort(){
+        log = LoggerFactory.getLogger(InsertionSort.class);
+    }
+
     @Override
     public int[] sort(int[] arr) {
         log.debug("{}: {}", "Original", arr);
