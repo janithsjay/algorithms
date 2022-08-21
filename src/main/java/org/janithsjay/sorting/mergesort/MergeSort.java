@@ -5,23 +5,26 @@ import org.janithsjay.sorting.Sorter;
 public class MergeSort extends Sorter {
     @Override
     public int[] sort(int[] arr) {
-        sort(arr, 0, arr.length-1);
+        double startMils = System.currentTimeMillis();
+        int[] res=sort(arr, 0, arr.length-1);
+        double endMils = System.currentTimeMillis();
+        printResults(res,startMils,endMils);
         return arr;
     }
 
-    public void sort(int[] arr, int firstIndex, int lastIndex) {
-        double startMils = System.currentTimeMillis();
+    public int[] sort(int[] arr, int firstIndex, int lastIndex) {
         if(firstIndex < lastIndex){
             int middle = (firstIndex + lastIndex)/2;
             sort(arr, firstIndex, middle);
             sort(arr, middle+1, lastIndex);
-            merge(arr,firstIndex,lastIndex,middle);
-            double endMils = System.currentTimeMillis();
+            return merge(arr,firstIndex,lastIndex,middle);
+        }else {
+            return arr;
         }
     }
 
-    private void merge(int[] arr, int firstIndex, int lastIndex, int middle) {
-        int leftArrSize = middle - firstIndex + 1;
+    private int[] merge(int[] arr, int firstIndex, int lastIndex, int middle) {
+        int leftArrSize = (middle - firstIndex) + 1;
         int rightArrSize = lastIndex - middle;
 
         int[] leftArr = new int[leftArrSize];
@@ -36,16 +39,33 @@ public class MergeSort extends Sorter {
             rightArr[i] = arr[middle + i + 1];
         }
 
-        int i = 0, j = 0, k = 0;
+        log.info("{} {}", leftArr, rightArr);
+
+        int i = 0, j = 0, k = firstIndex;
+
         while(i < leftArrSize && j < rightArrSize){
-            if(leftArr[i] < rightArr[j]){
+            if(leftArr[i] < rightArr[j] && i < leftArrSize){
                 arr[k] = leftArr[i];
                 i++;
-            }else if(leftArr[i] > rightArr[j]){
+            }else{
                 arr[k] = rightArr[j];
                 j++;
             }
             k++;
         }
+        while (i < leftArrSize) {
+            arr[k] = leftArr[i];
+            i++;
+            k++;
+        }
+
+        /* Copy remaining elements of R[] if any */
+        while (j < rightArrSize) {
+            arr[k] = rightArr[j];
+            j++;
+            k++;
+        }
+        log.info("{}", arr);
+        return arr;
     }
 }

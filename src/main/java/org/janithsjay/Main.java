@@ -19,6 +19,6 @@ public class Main {
         insertionSort.sort(new int[]{11,1,2,5,3,5,6,4,-4,0,-15});
 
         MergeSort mergeSort = new MergeSort();
-        mergeSort.sort(new int[]{11,1,2,5,3,5,6,4,-4,0,-15});
+        mergeSort.sort(new int[]{11,9,22,5,3,5,6,4,-4,0,-15});
     }
 }
