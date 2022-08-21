@@ -30,7 +30,7 @@ public class BubbleSort extends Sorter {
         for(int i=0; i <= arr.length-2; i++){
             for (int j=0; j <= arr.length-2-i; j++){
                 if( arr[j] > arr[j+1] ){
-                    arr = super.swap(arr,j,j+1);
+                    arr = swap(arr,j,j+1);
                 }
             }
             log.debug("Step {}: {}", i+1, arr);

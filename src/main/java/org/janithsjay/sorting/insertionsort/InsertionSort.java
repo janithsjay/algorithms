@@ -15,12 +15,11 @@ public class InsertionSort extends Sorter {
         double startMils = System.currentTimeMillis();
         for (int i=0; i<arr.length; i++){
             int current=arr[i];
-            for(int j=i-1; j>=0; j--){
-                if(arr[j] > current){
-                    arr[j+1]=arr[j];
-                    arr[j]=current;
-                }
+            int j;
+            for(j=i-1; j>=0 && arr[j] > current; j--){
+                arr[j+1]=arr[j];
             }
+            arr[j+1]=current;
             log.debug("Step {}: {}", i+1, arr);
         }
         double endMils = System.currentTimeMillis();

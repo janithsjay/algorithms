@@ -1,6 +1,5 @@
 package org.janithsjay.sorting;
 
-import org.janithsjay.sorting.bubblesort.BubbleSort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
